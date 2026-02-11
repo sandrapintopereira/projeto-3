@@ -12,18 +12,36 @@ export function adicionarTransacao(dados) {
    };
 
    transacoes.push(novaTransacao);
-
+   //teste
+   console.log(transacoes);
+   console.log(novaTransacao);
    return novaTransacao;
+
+   
 }
 
+export function removerTransacao (id) {
+   transacoes = transacoes.filter(t => t.id !== id);
 
-
-function removerTransacao () {
+   return transacoes;
 
 }
 
-function atualizarTransacao () {
+export function atualizarTransacao (id, novosDados) {
+   transacoes = transacoes.map(t => {
+      if(t.id === id) {
+         return {
+            ...t,
+            descricao: novosDados.descricao,
+            valor: Number(novosDados.valor),
+            tipo: novosDados.tipo,
+            categoria: novosDados.categoria
+         };
+      }
+      return t;
+   });
 
+   return transacoes;
 }
 /*
 OBJETIVO:
