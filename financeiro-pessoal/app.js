@@ -1,5 +1,32 @@
-/*
-OBJETIVO:
+import { adicionarTransacao, transacoes } from "./transactions/transactions.js";
+
+const botaoAdicionar = document.querySelector(".adiciona-historia");
+
+botaoAdicionar.addEventListener("click", () => {
+    const descricao = document.querySelector("#descricao").value.trim();
+    const valor = document.querySelector("#quantidade").value;
+    const tipo = document.querySelector("#tipo-transacao").value;
+
+    const categoria = "Outros";
+
+    if(!descricao || valor <= 0) {
+        alert("Preenche corretamente os campos.");
+        return;
+    }
+
+    const novaTransacao = adicionarTransacao({
+        descricao,
+        valor,
+        tipo,
+        categoria
+    });
+    //retirar isto depois - só para teste 
+    console.log("Transação adicionada:", novaTransacao);
+    console.log("Estado atual:", transacoes);
+    
+})
+
+/*OBJETIVO:
 Conectar tudo.
 
 PASSO A PASSO:

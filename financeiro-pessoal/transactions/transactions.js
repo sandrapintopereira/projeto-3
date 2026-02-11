@@ -1,3 +1,30 @@
+
+export let transacoes = [];
+
+export function adicionarTransacao(dados) {
+   const novaTransacao = {
+      id: Date.now(),
+      descricao: dados.descricao,
+      valor: Number(dados.valor),
+      tipo: dados.tipo,
+      categoria: dados.categoria,
+      data: new Date().toLocaleDateString()
+   };
+
+   transacoes.push(novaTransacao);
+
+   return novaTransacao;
+}
+
+
+
+function removerTransacao () {
+
+}
+
+function atualizarTransacao () {
+
+}
 /*
 OBJETIVO:
 Calcular saldo total, total de receitas e total de despesas.
