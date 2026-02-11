@@ -45,28 +45,22 @@ export function atualizarTransacao (id, novosDados) {
 }
 /*
 OBJETIVO:
-Calcular saldo total, total de receitas e total de despesas.
+Centralizar o controle das transações em memória.
 
 PENSAMENTO:
 
-1) O saldo começa em 0.
-2) Para cada transação:
-   - Se for receita, soma.
-   - Se for despesa, subtrai.
-3) Para calcular totais separados:
-   - Filtrar por tipo.
-   - Somar valores.
+1) Carregar as transações salvas quando o sistema iniciar.
+2) Criar função para:
+   - Retornar lista atual.
+   - Adicionar nova transação.
+   - (Opcional) remover transação.
+3) Sempre que alterar o estado:
+   - Atualizar o localStorage.
 
-DICA IMPORTANTE:
-Use reduce().
+REFLEXÃO:
+- Por que não manipular o localStorage diretamente no UI?
+- O que significa separar responsabilidade?
 
-Pergunta:
-- O que é o acumulador?
-- Qual deve ser o valor inicial?
-
-Exemplo mental:
-[100, -50, 200]
-Resultado esperado: 250
-
-Não escreva loops tradicionais.
+DESAFIO:
+Como garantir que o array nunca fique fora de sincronia?
 */
