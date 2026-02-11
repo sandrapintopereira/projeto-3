@@ -1,9 +1,9 @@
 export function calcularSaldo(lista) {
    return lista.reduce((total, transacao) => {
       if(transacao.tipo === "receita") {
-         total + transacao.valor;
+         return total + transacao.valor;
       } else {
-         total - transacao.valor;
+         return total - transacao.valor;
       }
    },0);
 }
