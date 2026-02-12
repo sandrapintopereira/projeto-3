@@ -21,6 +21,8 @@ botaoAdicionar.addEventListener("click", () => {
         tipo,
         categoria
     });
+
+    renderizarListaTransacoes(transacoes);
     //retirar isto depois - só para teste 
     console.log("Transação adicionada:", novaTransacao);
     console.log("Estado atual:", transacoes);

@@ -55,6 +55,7 @@ PENSAMENTO:
    - Adicionar nova transação.
    - (Opcional) remover transação.
 3) Sempre que alterar o estado:
+FALTA ATUALIZAR O LOCALSTORAGE
    - Atualizar o localStorage.
 
 REFLEXÃO:
