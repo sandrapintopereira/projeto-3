@@ -1,5 +1,5 @@
-import { adicionarTransacao, retornarListaTransacoes} from "./transactions/transactions.js";
-import {renderizarListaTransacoes} from './userInterface/userIterface.js';
+import { adicionarTransacao, retornarListaTransacoes, removerTransacao} from "./transactions/transactions.js";
+import {containerLista, renderizarListaTransacoes} from './userInterface/userIterface.js';
 
 renderizarListaTransacoes(retornarListaTransacoes());
 
@@ -27,7 +27,13 @@ botaoAdicionar.addEventListener("click", () => {
     
 });
 
-
+containerLista.addEventListener("click", (e) => {
+    if(e.target.classList.contains("botao-remover")) {
+        const id = e.target.dataset.id;
+        removerTransacao(id);
+        renderizarListaTransacoes(retornarListaTransacoes());
+    }
+})
 /*OBJETIVO:
 Conectar tudo.
 

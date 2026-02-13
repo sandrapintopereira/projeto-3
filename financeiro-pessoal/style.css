@@ -349,7 +349,7 @@ body {
 
 .cabecalho-tabela {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr; 
+    grid-template-columns: 2fr 1fr 1fr 60px; 
     padding: 10px 20px;
     color: var(--gray-titles);
     font-size: 11px;
@@ -359,7 +359,7 @@ body {
 
 .item-transacao {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 60px;
     align-items: center;
     background-color: var(--card-background);
     border: 1px solid var(--card-borders);
