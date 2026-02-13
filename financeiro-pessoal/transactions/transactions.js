@@ -1,5 +1,7 @@
+//retirei o export para centralizar responsabilidade 
+let transacoes = [];
 
-export let transacoes = [];
+const dadosSalvos = localStorage.getItem("transacoes");
 
 export function adicionarTransacao(dados) {
    const novaTransacao = {
@@ -12,6 +14,7 @@ export function adicionarTransacao(dados) {
    };
 
    transacoes.push(novaTransacao);
+   
    //teste
    console.log(transacoes);
    console.log(novaTransacao);
@@ -27,21 +30,8 @@ export function removerTransacao (id) {
 
 }
 
-export function atualizarTransacao (id, novosDados) {
-   transacoes = transacoes.map(t => {
-      if(t.id === id) {
-         return {
-            ...t,
-            descricao: novosDados.descricao,
-            valor: Number(novosDados.valor),
-            tipo: novosDados.tipo,
-            categoria: novosDados.categoria
-         };
-      }
-      return t;
-   });
+export function retornarListaTransacoes() {
 
-   return transacoes;
 }
 /*
 OBJETIVO:
