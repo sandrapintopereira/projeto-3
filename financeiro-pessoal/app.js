@@ -1,5 +1,4 @@
 import { adicionarTransacao, retornarListaTransacoes} from "./transactions/transactions.js";
-import {salvarStorage, carregarStorage} from "./storage/storage.js";
 import {renderizarListaTransacoes} from './userInterface/userIterface.js';
 
 const botaoAdicionar = document.querySelector(".adiciona-historia");
@@ -27,15 +26,6 @@ botaoAdicionar.addEventListener("click", () => {
 });
 
 
-
-/*const teste = {
-    descricao: "salário",
-    categoria: "Outros",
-    data: "11/02/2026",
-    valor: 5000
-};
-limparLista();
-containerLista.appendChild(criarTransacaoElemento(teste));
 /*OBJETIVO:
 Conectar tudo.
 

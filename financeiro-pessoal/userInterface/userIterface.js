@@ -2,6 +2,10 @@ import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state.j
 import { retornarListaTransacoes } from "../transactions/transactions.js";
 
 export const containerLista = document.querySelector(".lista-transacoes");
+export const saldoTotal = document.querySelector(".card-saldo");
+export const receitaTotal = document.querySelector(".card-receitas");
+export const despesaTotal = document.querySelector(".card-despesas");
+
 
 export function limparLista() {
    return containerLista.innerHTML = "";
@@ -31,9 +35,18 @@ export function renderizarListaTransacoes(lista) {
    lista.forEach(transacao => {
       containerLista.appendChild(criarTransacaoElemento(transacao));
    });
+
+   atualizarCards();
 };
 
+export function atualizarCards() {
+   const lista = retornarListaTransacoes();
 
+   saldoTotal.textContent = Number(calcularSaldo(lista)).toFixed(2) + "€";
+   receitaTotal.textContent = Number(calcularReceita(lista)).toFixed(2) + "€";
+   despesaTotal.textContent = Number(calcularDespesa(lista)).toFixed(2) + "€";
+
+};
 
 
 /*

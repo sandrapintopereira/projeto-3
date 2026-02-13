@@ -6,7 +6,7 @@ export function adicionarTransacao(dados) {
    const novaTransacao = {
       id: Date.now(),
       descricao: dados.descricao,
-      valor: Number(dados.valor).toFixed(2),
+      valor: Number(dados.valor),
       tipo: dados.tipo,
       categoria: dados.categoria,
       data: new Date().toLocaleDateString()

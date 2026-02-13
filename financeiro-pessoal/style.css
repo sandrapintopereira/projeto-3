@@ -191,11 +191,25 @@ body {
     font-size: 14px;
 }
 
-.valor {
+.card-saldo {
     color: var(--accent-color);
     font-size: 24px;
     font-weight: bold;
     margin-top: 4px;
+}
+
+.card-receitas {
+    color: var(--accent-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.card-despesas {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 4px;
+    color: var(--expense-color);
 }
 
 .positivo {
@@ -206,15 +220,6 @@ body {
     color: var(--expense-color);
 }
 
-/*.informacao {
-    color: var(--primary-color);
-    font-size: 12px;
-    margin-top: 8px;
-}*/
-
-.expense-color {
-    color: var(--expense-color);
-}
 
 .titulo-nova-transacao-container {
     display: flex;
@@ -344,7 +349,7 @@ body {
 
 .cabecalho-tabela {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr; 
+    grid-template-columns: 2fr 1fr 1fr; 
     padding: 10px 20px;
     color: var(--gray-titles);
     font-size: 11px;
