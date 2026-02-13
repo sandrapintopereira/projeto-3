@@ -1,6 +1,8 @@
 import { adicionarTransacao, retornarListaTransacoes} from "./transactions/transactions.js";
 import {renderizarListaTransacoes} from './userInterface/userIterface.js';
 
+renderizarListaTransacoes(retornarListaTransacoes());
+
 const botaoAdicionar = document.querySelector(".adiciona-historia");
 
 
@@ -21,7 +23,7 @@ botaoAdicionar.addEventListener("click", () => {
     });
 
 
-    renderizarListaTransacoes(retornarListaTransacoes(novaTransacao));
+    renderizarListaTransacoes(retornarListaTransacoes());
     
 });
 
