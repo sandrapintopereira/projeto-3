@@ -1,7 +1,6 @@
-//retirei o export para centralizar responsabilidade 
-let transacoes = [];
+import { salvarStorage, carregarStorage } from "../storage/storage";
 
-const dadosSalvos = localStorage.getItem("transacoes");
+let transacoes = carregarStorage();
 
 export function adicionarTransacao(dados) {
    const novaTransacao = {
@@ -14,10 +13,7 @@ export function adicionarTransacao(dados) {
    };
 
    transacoes.push(novaTransacao);
-   
-   //teste
-   console.log(transacoes);
-   console.log(novaTransacao);
+   salvarStorage(transacoes);
    return novaTransacao;
 
    
@@ -26,12 +22,13 @@ export function adicionarTransacao(dados) {
 export function removerTransacao (id) {
    transacoes = transacoes.filter(t => t.id !== id);
 
+   salvarStorage(transacoes);
    return transacoes;
 
 }
 
 export function retornarListaTransacoes() {
-
+   return transacoes;
 }
 /*
 OBJETIVO:
@@ -45,7 +42,6 @@ PENSAMENTO:
    - Adicionar nova transação.
    - (Opcional) remover transação.
 3) Sempre que alterar o estado:
-FALTA ATUALIZAR O LOCALSTORAGE
    - Atualizar o localStorage.
 
 REFLEXÃO:
