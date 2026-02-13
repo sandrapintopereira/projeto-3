@@ -1,5 +1,5 @@
-import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state";
-import { retornarListaTransacoes } from "../transactions/transactions";
+import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state.js";
+import { retornarListaTransacoes } from "../transactions/transactions.js";
 
 export const containerLista = document.querySelector(".lista-transacoes");
 
@@ -10,13 +10,18 @@ export function limparLista() {
 export function criarTransacaoElemento(transacao) {
    const div = document.createElement("div");
    div.className = "item-transacao";
-   div.dataset.id = transacao.id;
+   let valorFormatado;
+
+   if(transacao.tipo === "receita") {
+      valorFormatado = transacao.valor + "€";
+   } else {
+      valorFormatado = transacao.valor + "-€";
+   };
 
    div.innerHTML = `
    <span>${transacao.descricao}</span>
-   <span>${transacao.categoria}</span>
    <span>${transacao.data}</span>
-   <span>${transacao.valor}</span>
+   <span>${valorFormatado}</span>
    `;
    return div;
 };
@@ -26,8 +31,9 @@ export function renderizarListaTransacoes(lista) {
    lista.forEach(transacao => {
       containerLista.appendChild(criarTransacaoElemento(transacao));
    });
-   console.log(`${lista.length} transações renderizadas`);
-}
+};
+
+
 
 
 /*

@@ -1,4 +1,4 @@
-import { salvarStorage, carregarStorage } from "../storage/storage";
+import { salvarStorage, carregarStorage } from "../storage/storage.js";
 
 let transacoes = carregarStorage();
 
@@ -6,7 +6,7 @@ export function adicionarTransacao(dados) {
    const novaTransacao = {
       id: Date.now(),
       descricao: dados.descricao,
-      valor: Number(dados.valor),
+      valor: Number(dados.valor).toFixed(2),
       tipo: dados.tipo,
       categoria: dados.categoria,
       data: new Date().toLocaleDateString()
