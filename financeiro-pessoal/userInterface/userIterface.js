@@ -1,16 +1,15 @@
 import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state";
+import { retornarListaTransacoes } from "../transactions/transactions";
 
 export const containerLista = document.querySelector(".lista-transacoes");
 
 export function limparLista() {
-   containerLista.innerHTML = "";
-   //para teste, retirar no fim
-   console.log("lista limpa!");
+   return containerLista.innerHTML = "";
 }
 
 export function criarTransacaoElemento(transacao) {
    const div = document.createElement("div");
-   div.className = "transacao-item";
+   div.className = "item-transacao";
    div.dataset.id = transacao.id;
 
    div.innerHTML = `

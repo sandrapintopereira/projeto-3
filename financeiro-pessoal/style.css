@@ -206,11 +206,11 @@ body {
     color: var(--expense-color);
 }
 
-.informacao {
+/*.informacao {
     color: var(--primary-color);
     font-size: 12px;
     margin-top: 8px;
-}
+}*/
 
 .expense-color {
     color: var(--expense-color);
