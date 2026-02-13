@@ -1,15 +1,14 @@
-import { adicionarTransacao, transacoes } from "./transactions/transactions.js";
-import {limparLista, criarTransacaoElemento, containerLista, renderizarListaTransacoes} from './userInterface/userIterface.js';
+import { adicionarTransacao, retornarListaTransacoes} from "./transactions/transactions.js";
+import {renderizarListaTransacoes} from './userInterface/userIterface.js';
 
 const botaoAdicionar = document.querySelector(".adiciona-historia");
+
 
 botaoAdicionar.addEventListener("click", () => {
     const descricao = document.querySelector("#descricao").value.trim();
     const valor = document.querySelector("#quantidade").value;
     const tipo = document.querySelector("#tipo-transacao").value;
-
-    const categoria = "Outros";
-
+    
     if(!descricao || valor <= 0) {
         alert("Preenche corretamente os campos.");
         return;
@@ -18,27 +17,15 @@ botaoAdicionar.addEventListener("click", () => {
     const novaTransacao = adicionarTransacao({
         descricao,
         valor,
-        tipo,
-        categoria
+        tipo
     });
 
-    renderizarListaTransacoes(transacoes);
-    //retirar isto depois - só para teste 
-    console.log("Transação adicionada:", novaTransacao);
-    console.log("Estado atual:", transacoes);
+
+    renderizarListaTransacoes(retornarListaTransacoes(novaTransacao));
     
 });
 
 
-
-/*const teste = {
-    descricao: "salário",
-    categoria: "Outros",
-    data: "11/02/2026",
-    valor: 5000
-};
-limparLista();
-containerLista.appendChild(criarTransacaoElemento(teste));
 /*OBJETIVO:
 Conectar tudo.
 

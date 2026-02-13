@@ -1,4 +1,4 @@
-import { salvarStorage, carregarStorage } from "../storage/storage";
+import { salvarStorage, carregarStorage } from "../storage/storage.js";
 
 let transacoes = carregarStorage();
 

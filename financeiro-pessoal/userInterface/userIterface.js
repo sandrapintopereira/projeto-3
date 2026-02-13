@@ -1,23 +1,31 @@
-import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state";
+import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state.js";
+import { retornarListaTransacoes } from "../transactions/transactions.js";
 
 export const containerLista = document.querySelector(".lista-transacoes");
+export const saldoTotal = document.querySelector(".card-saldo");
+export const receitaTotal = document.querySelector(".card-receitas");
+export const despesaTotal = document.querySelector(".card-despesas");
+
 
 export function limparLista() {
-   containerLista.innerHTML = "";
-   //para teste, retirar no fim
-   console.log("lista limpa!");
+   return containerLista.innerHTML = "";
 }
 
 export function criarTransacaoElemento(transacao) {
    const div = document.createElement("div");
-   div.className = "transacao-item";
-   div.dataset.id = transacao.id;
+   div.className = "item-transacao";
+   let valorFormatado;
+
+   if(transacao.tipo === "receita") {
+      valorFormatado = transacao.valor + "€";
+   } else {
+      valorFormatado = transacao.valor + "-€";
+   };
 
    div.innerHTML = `
    <span>${transacao.descricao}</span>
-   <span>${transacao.categoria}</span>
    <span>${transacao.data}</span>
-   <span>${transacao.valor}</span>
+   <span>${valorFormatado}</span>
    `;
    return div;
 };
@@ -27,8 +35,18 @@ export function renderizarListaTransacoes(lista) {
    lista.forEach(transacao => {
       containerLista.appendChild(criarTransacaoElemento(transacao));
    });
-   console.log(`${lista.length} transações renderizadas`);
-}
+
+   atualizarCards();
+};
+
+export function atualizarCards() {
+   const lista = retornarListaTransacoes();
+
+   saldoTotal.textContent = Number(calcularSaldo(lista)).toFixed(2) + "€";
+   receitaTotal.textContent = Number(calcularReceita(lista)).toFixed(2) + "€";
+   despesaTotal.textContent = Number(calcularDespesa(lista)).toFixed(2) + "€";
+
+};
 
 
 /*
