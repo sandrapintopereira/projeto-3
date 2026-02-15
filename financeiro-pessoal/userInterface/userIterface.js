@@ -1,5 +1,5 @@
 import { calcularSaldo, calcularReceita,calcularDespesa } from "../state/state.js";
-import { retornarListaTransacoes } from "../transactions/transactions.js";
+import { retornarListaTransacoes, removerTransacao } from "../transactions/transactions.js";
 
 export const containerLista = document.querySelector(".lista-transacoes");
 export const saldoTotal = document.querySelector(".card-saldo");
@@ -19,14 +19,16 @@ export function criarTransacaoElemento(transacao) {
    if(transacao.tipo === "receita") {
       valorFormatado = transacao.valor + "€";
    } else {
-      valorFormatado = transacao.valor + "-€";
+      valorFormatado = transacao.valor + "€";
    };
 
    div.innerHTML = `
    <span>${transacao.descricao}</span>
    <span>${transacao.data}</span>
    <span>${valorFormatado}</span>
+   <button class="botao-remover" data-id="${transacao.id}">X</button>
    `;
+
    return div;
 };
 
