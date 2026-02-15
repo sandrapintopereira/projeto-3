@@ -20,7 +20,8 @@ export function adicionarTransacao(dados) {
 }
 
 export function removerTransacao (id) {
-   transacoes = transacoes.filter(t => t.id !== id);
+   const idNum = Number(id);
+   transacoes = transacoes.filter(t => t.id !== idNum);
 
    salvarStorage(transacoes);
    return transacoes;

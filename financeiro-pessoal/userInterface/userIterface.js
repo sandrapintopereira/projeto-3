@@ -26,7 +26,7 @@ export function criarTransacaoElemento(transacao) {
    <span>${transacao.descricao}</span>
    <span>${transacao.data}</span>
    <span>${valorFormatado}</span>
-   <button class="botao-remover" data-id=${transacao.id}">X</button>
+   <button class="botao-remover" data-id="${transacao.id}">X</button>
    `;
 
    return div;
