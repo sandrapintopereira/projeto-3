@@ -19,7 +19,7 @@ export function criarTransacaoElemento(transacao) {
    if(transacao.tipo === "receita") {
       valorFormatado = transacao.valor + "€";
    } else {
-      valorFormatado = transacao.valor + "-€";
+      valorFormatado = transacao.valor + "€";
    };
 
    div.innerHTML = `
