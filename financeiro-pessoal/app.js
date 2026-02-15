@@ -16,7 +16,7 @@ botaoAdicionar.addEventListener("click", () => {
         return;
     }
 
-    const novaTransacao = adicionarTransacao({
+    adicionarTransacao({
         descricao,
         valor,
         tipo
@@ -24,6 +24,10 @@ botaoAdicionar.addEventListener("click", () => {
 
 
     renderizarListaTransacoes(retornarListaTransacoes());
+        //para limpar formulário depois de adicionar 
+        document.querySelector("#descricao").value = "";
+        document.querySelector("#quantidade").value = "";
+        document.querySelector("#tipo-transacao").value = "receita";
     
 });
 
