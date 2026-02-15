@@ -142,7 +142,7 @@ body {
     align-items: center; 
 }
 
-/* .transacoes, .cards-container {
+/*.transacoes, .cards-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -268,6 +268,10 @@ body {
     border-radius: 4px;
     background-color: transparent;
     color: var(--accent-color);
+}
+
+.form-container select option {
+    background-color: var(--secondary-color);
 }
 
 .description-form {
@@ -464,4 +468,10 @@ body {
     height: 26px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .sidebar {display: none;}
+    .cards-container, .transacoes{grid-template-columns: 1fr;}
+    .main {padding: 20px;}
 }
