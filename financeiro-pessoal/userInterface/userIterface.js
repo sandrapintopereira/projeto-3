@@ -12,8 +12,8 @@ export function limparLista() {
 }
 
 export function criarTransacaoElemento(transacao) {
-   const div = document.createElement("div");
-   div.className = "item-transacao";
+   const elementoTransacao = document.createElement("div");
+   elementoTransacao.className = "item-transacao";
    let valorFormatado;
 
    if(transacao.tipo === "receita") {
@@ -22,14 +22,15 @@ export function criarTransacaoElemento(transacao) {
       valorFormatado = transacao.valor + "€";
    };
 
-   div.innerHTML = `
+   elementoTransacao.innerHTML = `
    <span>${transacao.descricao}</span>
+   <span class="etiqueta-${transacao.tipo}">${transacao.tipo}</span>
    <span>${transacao.data}</span>
    <span>${valorFormatado}</span>
    <button class="botao-remover" data-id="${transacao.id}">X</button>
    `;
 
-   return div;
+   return elementoTransacao;
 };
 
 export function renderizarListaTransacoes(lista) {
