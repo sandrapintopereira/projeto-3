@@ -469,3 +469,9 @@ body {
     border-radius: 50%;
     cursor: pointer;
 }
+
+@media (max-width: 767px) {
+    .sidebar {display: none;}
+    .cards-container, .transacoes{grid-template-columns: 1fr;}
+    .main {padding: 20px;}
+}
